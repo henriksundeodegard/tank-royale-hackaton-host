@@ -209,7 +209,7 @@ Now let's create a custom bot to verify the development workflow for hackathon p
 
 **Bot Created: HackatonBot**
 
-Location: `/Users/h.sunde.odegard/Projects/ai_hackaton_2025/tank-royale/HackatonBot/`
+Location: `/path/to/your/host-workspace/tank-royale/HackatonBot/`
 
 **Bot Strategy:**
 - Moves in a circular pattern around the arena

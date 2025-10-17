@@ -86,7 +86,7 @@ Replace placeholders:
 
 1. **Navigate to host workspace:**
    ```bash
-   cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025
+   cd /path/to/your/host-workspace
    ```
 
 2. **Create .gitignore for host workspace:**
@@ -143,7 +143,7 @@ This gives participants a clean, focused repository.
 
 1. **Navigate to participant repository:**
    ```bash
-   cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025/tank-royale-hackathon
+   cd /path/to/your/host-workspace/tank-royale-hackathon
    ```
 
 2. **Initialize git repository:**
@@ -184,7 +184,7 @@ If you want to keep them linked, use git subtree. This is more complex but maint
 
 ```bash
 # From host workspace
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025
+cd /path/to/your/host-workspace
 git subtree push --prefix=tank-royale-hackathon origin-participant main
 ```
 
@@ -194,7 +194,7 @@ git subtree push --prefix=tank-royale-hackathon origin-participant main
 
 **In Host Workspace:**
 ```bash
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025
+cd /path/to/your/host-workspace
 # Edit README.md to add repository URLs
 git add README.md
 git commit -m "Add repository URLs"
@@ -203,7 +203,7 @@ git push
 
 **In Participant Repository:**
 ```bash
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025/tank-royale-hackathon
+cd /path/to/your/host-workspace/tank-royale-hackathon
 # Edit SUBMISSION.md and README.md with repository URL
 git add SUBMISSION.md README.md
 git commit -m "Add repository URL"
@@ -342,7 +342,7 @@ git push
 If you're only changing host workspace files (README.md, HOST_NOTES.md, etc.):
 
 ```bash
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025
+cd /path/to/your/host-workspace
 git add <files>
 git commit -m "Description of changes"
 git push

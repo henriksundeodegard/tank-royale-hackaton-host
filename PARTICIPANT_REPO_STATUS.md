@@ -129,7 +129,7 @@ tank-royale-hackathon/
 ### 1. Initialize Git Repository
 
 ```bash
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025/tank-royale-hackathon
+cd /path/to/your/host-workspace/tank-royale-hackathon
 
 # Initialize git
 git init
