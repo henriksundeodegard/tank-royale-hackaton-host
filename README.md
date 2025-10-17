@@ -59,12 +59,12 @@ git push -u origin main
 ### 2. Share with Participants (1 Week Before Event)
 
 Send:
-- Repository URL
+- **Repository:** https://github.com/henriksundeodegard/tank-royale-hackaton
 - Setup deadline
 - Instructions:
   ```bash
-  git clone [repo-url]
-  cd tank-royale-hackathon
+  git clone https://github.com/henriksundeodegard/tank-royale-hackaton.git
+  cd tank-royale-hackaton
 
   # Then simply ask your AI assistant: "Help" or "Get started"
   # Your AI will guide you through team setup and first battle!
@@ -107,7 +107,8 @@ The workspace has been organized into two main areas:
 
 ## Contact & Support
 
-**Repository:** [Add your repo URL after publishing]
+**Host Repository:** https://github.com/henriksundeodegard/tank-royale-hackaton-host
+**Participant Repository:** https://github.com/henriksundeodegard/tank-royale-hackaton
 **Event Date:** [Add event date]
 **Location:** [Add location]
 **Hosts:** [Add host names/emails]
