@@ -1,0 +1,2 @@
+Error: Could not find or load main class HackatonBot.java
+Caused by: java.lang.ClassNotFoundException: HackatonBot.java

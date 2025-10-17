@@ -1,0 +1,14 @@
+{
+  "name": "Hackaton Bot",
+  "version": "1.0",
+  "authors": [
+    "AI Hackathon Team"
+  ],
+  "description": "A custom bot created to test the hackathon development workflow. Uses circular movement and dynamic firing power.",
+  "homepage": "",
+  "countryCodes": [
+    "no"
+  ],
+  "platform": "JVM",
+  "programmingLang": "Java 11"
+}
