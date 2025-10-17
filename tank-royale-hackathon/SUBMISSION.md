@@ -58,8 +58,10 @@ git add YourTeamBot.java YourTeamBot.json YourTeamBot.sh
 git commit -m "Submit [Team Name] bot for tournament"
 
 # Push to repository
-git push
+git push origin main
 ```
+
+**Repository:** https://github.com/henriksundeodegard/tank-royale-hackaton
 
 ### Option 2: File Upload
 

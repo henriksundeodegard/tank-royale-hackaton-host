@@ -136,4 +136,8 @@ tank-royale-hackathon/
 - **Format**: Round-robin tournament
 - **Prize**: Glory and bragging rights! 🏆
 
+## Repository
+
+**GitHub:** https://github.com/henriksundeodegard/tank-royale-hackaton
+
 Good luck, and may your bot reign supreme! 🤖⚔️
