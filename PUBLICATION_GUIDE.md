@@ -282,24 +282,88 @@ See you at [EVENT_DATE]!
 
 ## Repository Maintenance
 
+### Understanding the Repository Structure
+
+**IMPORTANT:** The host workspace contains the participant repository as a subdirectory:
+
+```
+ai_hackaton_2025/              # Host repository
+├── README.md                   # Host docs
+├── HOST_NOTES.md
+└── tank-royale-hackathon/     # Participant repository (nested)
+    ├── README.md              # Participant docs
+    ├── scripts/
+    └── tank-royale/
+```
+
+Both directories are **separate git repositories** with their own remotes.
+
 ### Making Updates
 
-**To Host Repository:**
+#### When Making Changes to Participant Repository Files
+
+**You must commit to BOTH repositories** because the participant repo is nested inside the host repo:
+
+1. **First, commit to the participant repository:**
+   ```bash
+   cd tank-royale-hackathon
+   git add <files>
+   git commit -m "Description of changes"
+   git push
+   ```
+
+2. **Then, commit to the host repository:**
+   ```bash
+   cd ..
+   git add tank-royale-hackathon/
+   git commit -m "Update participant repo: <description>"
+   git push
+   ```
+
+**Example workflow:**
+```bash
+# You edited tank-royale-hackathon/scripts/verify-setup.sh
+
+# Step 1: Commit to participant repo
+cd tank-royale-hackathon
+git add scripts/verify-setup.sh
+git commit -m "Fix game-setups.properties path"
+git push
+
+# Step 2: Commit to host repo to include the update
+cd ..
+git add tank-royale-hackathon/scripts/verify-setup.sh
+git commit -m "Update participant repo: Fix game-setups path"
+git push
+```
+
+#### When Making Changes to Host Repository Files Only
+
+If you're only changing host workspace files (README.md, HOST_NOTES.md, etc.):
+
 ```bash
 cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025
-# Make changes
-git add .
+git add <files>
 git commit -m "Description of changes"
 git push
 ```
 
-**To Participant Repository:**
+### Quick Reference Commands
+
+**Check status of both repositories:**
 ```bash
-cd /Users/h.sunde.odegard/Projects/ai_hackaton_2025/tank-royale-hackathon
-# Make changes
-git add .
-git commit -m "Description of changes"
-git push
+# From host workspace
+git status
+cd tank-royale-hackathon && git status && cd ..
+```
+
+**Pull latest changes:**
+```bash
+# Pull host repo
+git pull
+
+# Pull participant repo
+cd tank-royale-hackathon && git pull && cd ..
 ```
 
 ### Using Documentation Update Checklist
