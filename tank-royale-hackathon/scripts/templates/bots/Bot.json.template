@@ -1,0 +1,9 @@
+{
+  "name": "{{BOT_NAME}}",
+  "version": "1.0",
+  "authors": ["{{TEAM_NAME}}"],
+  "description": "Team {{TEAM_NUMBER}}'s competitive tank bot",
+  "countryCodes": ["no"],
+  "platform": "JVM",
+  "programmingLang": "Java 11"
+}

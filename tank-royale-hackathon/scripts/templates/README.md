@@ -1,8 +1,8 @@
 # Configuration Templates
 
-This directory contains template files used by setup scripts to generate Tank Royale configuration files.
+This directory contains template files used by setup scripts to generate Tank Royale configuration files and bot files.
 
-## Templates
+## Configuration Templates
 
 ### gui.properties.template
 Used by `verify-setup.sh` to configure the Tank Royale GUI with bot directories.
@@ -15,6 +15,34 @@ Used by `verify-setup.sh` to configure default game settings for all game types 
 
 **Placeholders:**
 - `{{NUMBER_OF_ROUNDS}}` - Number of rounds per battle (default: 3 for faster testing)
+
+## Bot Templates (`bots/`)
+
+Used by `create-bot.sh` to generate bot files with team colors and metadata.
+
+### Bot.java.template
+Template for the main bot Java file.
+
+**Placeholders:**
+- `{{BOT_NAME}}` - Name of the bot class
+- `{{BODY_COLOR}}` - Java Color code for body
+- `{{TURRET_COLOR}}` - Java Color code for turret
+- `{{RADAR_COLOR}}` - Java Color code for radar
+- `{{BULLET_COLOR}}` - Java Color code for bullets
+
+### Bot.json.template
+Template for bot metadata file.
+
+**Placeholders:**
+- `{{BOT_NAME}}` - Bot name
+- `{{TEAM_NAME}}` - Team name
+- `{{TEAM_NUMBER}}` - Team number (1-4)
+
+### Bot.sh.template & Bot.cmd.template
+Templates for launch scripts (Unix and Windows).
+
+**Placeholders:**
+- `{{BOT_NAME}}` - Bot filename
 
 ## Adding New Configuration Options
 

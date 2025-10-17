@@ -74,7 +74,7 @@ REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Create/update gui.properties from template
-sed "s|{{REPO_ROOT}}|$REPO_ROOT|g" "$SCRIPT_DIR/templates/gui.properties.template" > gui.properties
+sed "s|{{REPO_ROOT}}|$REPO_ROOT|g" "$SCRIPT_DIR/templates/gui.properties.template" > "$REPO_ROOT/gui.properties"
 
 echo "✅ Bot directories configured"
 
@@ -82,7 +82,7 @@ echo "✅ Bot directories configured"
 # Configure number of rounds (default: 3 for faster testing)
 NUMBER_OF_ROUNDS=3
 
-sed "s|{{NUMBER_OF_ROUNDS}}|$NUMBER_OF_ROUNDS|g" "$SCRIPT_DIR/templates/game-setups.properties.template" > tank-royale/game-setups.properties
+sed "s|{{NUMBER_OF_ROUNDS}}|$NUMBER_OF_ROUNDS|g" "$SCRIPT_DIR/templates/game-setups.properties.template" > "$REPO_ROOT/tank-royale/game-setups.properties"
 
 echo "✅ Game setup defaults configured ($NUMBER_OF_ROUNDS rounds for faster testing)"
 

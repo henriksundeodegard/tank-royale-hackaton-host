@@ -39,6 +39,9 @@ mkdir -p "$BOT_DIR"
 echo "🤖 Creating bot: $BOT_NAME for Team $TEAM_NUMBER ($TEAM_NAME)"
 echo "📁 Location: $BOT_DIR"
 
+# Get script directory for template access
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
 # Convert color strings to Java Color code
 function convert_color() {
     local color=$1
@@ -64,94 +67,23 @@ TURRET_COLOR_CODE=$(convert_color "$TURRET_COLOR")
 RADAR_COLOR_CODE=$(convert_color "$RADAR_COLOR")
 BULLET_COLOR_CODE=$(convert_color "$BULLET_COLOR")
 
-# Create Java file
-cat > "$BOT_DIR/$BOT_NAME.java" << EOF
-import dev.robocode.tankroyale.botapi.*;
-import dev.robocode.tankroyale.botapi.events.*;
+# Create Java file from template
+sed -e "s|{{BOT_NAME}}|$BOT_NAME|g" \
+    -e "s|{{BODY_COLOR}}|$BODY_COLOR_CODE|g" \
+    -e "s|{{TURRET_COLOR}}|$TURRET_COLOR_CODE|g" \
+    -e "s|{{RADAR_COLOR}}|$RADAR_COLOR_CODE|g" \
+    -e "s|{{BULLET_COLOR}}|$BULLET_COLOR_CODE|g" \
+    "$SCRIPT_DIR/templates/bots/Bot.java.template" > "$BOT_DIR/$BOT_NAME.java"
 
-/**
- * $BOT_NAME - A competitive Tank Royale bot
- *
- * Strategy: [Describe your strategy here]
- */
-public class $BOT_NAME extends Bot {
+# Create JSON metadata file from template
+sed -e "s|{{BOT_NAME}}|$BOT_NAME|g" \
+    -e "s|{{TEAM_NAME}}|$TEAM_NAME|g" \
+    -e "s|{{TEAM_NUMBER}}|$TEAM_NUMBER|g" \
+    "$SCRIPT_DIR/templates/bots/Bot.json.template" > "$BOT_DIR/$BOT_NAME.json"
 
-    // The main method starts our bot
-    public static void main(String[] args) {
-        new $BOT_NAME().start();
-    }
-
-    // Called when a new round is started
-    @Override
-    public void run() {
-        // Set team colors
-        setBodyColor($BODY_COLOR_CODE);
-        setTurretColor($TURRET_COLOR_CODE);
-        setRadarColor($RADAR_COLOR_CODE);
-        setBulletColor($BULLET_COLOR_CODE);
-
-        // Main bot loop - runs continuously during the battle
-        while (isRunning()) {
-            // TODO: Implement your movement strategy
-            forward(100);
-            turnGunRight(360);
-        }
-    }
-
-    // Called when our radar scans another bot
-    @Override
-    public void onScannedBot(ScannedBotEvent e) {
-        // TODO: Implement your targeting strategy
-        fire(1);
-    }
-
-    // Called when we're hit by a bullet
-    @Override
-    public void onHitByBullet(HitByBulletEvent e) {
-        // TODO: Implement your defensive strategy
-        turnRight(90);
-    }
-
-    // Called when we hit a wall
-    @Override
-    public void onHitWall(HitWallEvent e) {
-        // Back up and turn away from wall
-        back(20);
-        turnRight(90);
-    }
-
-    // Called when we collide with another bot
-    @Override
-    public void onHitBot(HitBotEvent e) {
-        // Decide whether to ram or retreat
-        back(10);
-    }
-}
-EOF
-
-# Create JSON metadata file
-cat > "$BOT_DIR/$BOT_NAME.json" << EOF
-{
-  "name": "$BOT_NAME",
-  "version": "1.0",
-  "authors": ["$TEAM_NAME"],
-  "description": "Team $TEAM_NUMBER's competitive tank bot",
-  "countryCodes": ["no"],
-  "platform": "JVM",
-  "programmingLang": "Java 11"
-}
-EOF
-
-# Create launch script
-cat > "$BOT_DIR/$BOT_NAME.sh" << EOF
-#!/bin/sh
-java -cp ../../lib/robocode-tankroyale-bot-api-0.33.1.jar $BOT_NAME.java
-EOF
-
-# Create Windows launch script
-cat > "$BOT_DIR/$BOT_NAME.cmd" << EOF
-java -cp ..\\..\\lib\\robocode-tankroyale-bot-api-0.33.1.jar $BOT_NAME.java
-EOF
+# Create launch scripts from templates
+sed "s|{{BOT_NAME}}|$BOT_NAME|g" "$SCRIPT_DIR/templates/bots/Bot.sh.template" > "$BOT_DIR/$BOT_NAME.sh"
+sed "s|{{BOT_NAME}}|$BOT_NAME|g" "$SCRIPT_DIR/templates/bots/Bot.cmd.template" > "$BOT_DIR/$BOT_NAME.cmd"
 
 # Make shell script executable
 chmod +x "$BOT_DIR/$BOT_NAME.sh"

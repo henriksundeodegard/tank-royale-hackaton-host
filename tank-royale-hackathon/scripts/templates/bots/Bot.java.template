@@ -1,0 +1,61 @@
+import dev.robocode.tankroyale.botapi.*;
+import dev.robocode.tankroyale.botapi.events.*;
+
+/**
+ * {{BOT_NAME}} - A competitive Tank Royale bot
+ *
+ * Strategy: [Describe your strategy here]
+ */
+public class {{BOT_NAME}} extends Bot {
+
+    // The main method starts our bot
+    public static void main(String[] args) {
+        new {{BOT_NAME}}().start();
+    }
+
+    // Called when a new round is started
+    @Override
+    public void run() {
+        // Set team colors
+        setBodyColor({{BODY_COLOR}});
+        setTurretColor({{TURRET_COLOR}});
+        setRadarColor({{RADAR_COLOR}});
+        setBulletColor({{BULLET_COLOR}});
+
+        // Main bot loop - runs continuously during the battle
+        while (isRunning()) {
+            // TODO: Implement your movement strategy
+            forward(100);
+            turnGunRight(360);
+        }
+    }
+
+    // Called when our radar scans another bot
+    @Override
+    public void onScannedBot(ScannedBotEvent e) {
+        // TODO: Implement your targeting strategy
+        fire(1);
+    }
+
+    // Called when we're hit by a bullet
+    @Override
+    public void onHitByBullet(HitByBulletEvent e) {
+        // TODO: Implement your defensive strategy
+        turnRight(90);
+    }
+
+    // Called when we hit a wall
+    @Override
+    public void onHitWall(HitWallEvent e) {
+        // Back up and turn away from wall
+        back(20);
+        turnRight(90);
+    }
+
+    // Called when we collide with another bot
+    @Override
+    public void onHitBot(HitBotEvent e) {
+        // Decide whether to ram or retreat
+        back(10);
+    }
+}
