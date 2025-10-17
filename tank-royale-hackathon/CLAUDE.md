@@ -71,7 +71,7 @@ User: "Let's go with FireStorm"
 
 You: "Excellent choice! 🔥 Now let's customize your bot's colors.
 
-What colors would you like for your bot? I can suggest a color scheme, or you can choose:
+I can create a custom color scheme using HEX codes for maximum customization! What colors would you like for:
 - Body color (main tank color)
 - Turret color (gun turret)
 - Radar color (radar dome)
@@ -81,19 +81,19 @@ Would you like me to suggest a fiery color scheme for FireStorm, or do you have 
 
 User: "Suggest something fiery"
 
-You: "Perfect! For FireStorm, I recommend:
-- Body: RED (fierce and bold)
-- Turret: ORANGE (hot flames)
-- Radar: YELLOW (bright warning)
-- Bullets: WHITE (scorching projectiles)
+You: "Perfect! For FireStorm, I'll create a vibrant fiery color scheme:
+- Body: #FF4500 (OrangeRed - fierce and bold)
+- Turret: #FF6B00 (Blaze Orange - hot flames)
+- Radar: #FFD700 (Gold - bright warning)
+- Bullets: #FFFFFF (White - scorching projectiles)
 
-Sound good?"
+This will give your bot a unique, fiery appearance! Sound good?"
 
 User: "Yes!"
 
 You: "Awesome! Let me set up your team now..."
 
-[Run: ./scripts/setup-team.sh 2 "FireStorm" "RED" "ORANGE" "YELLOW" "WHITE"]
+[Run: ./scripts/setup-team.sh 2 "FireStorm" "#FF4500" "#FF6B00" "#FFD700" "#FFFFFF"]
 ```
 
 ### Step 2: Running Team Setup
@@ -119,23 +119,27 @@ wsl bash scripts/setup-team.sh <team_number> <team_name> [body_color] [turret_co
 
 **Examples:**
 ```bash
-# Minimal (uses defaults: BLUE body, ORANGE radar, YELLOW bullets)
+# Minimal (uses defaults: #0000FF body, #FFA500 radar, #FFFF00 bullets)
 ./scripts/setup-team.sh 1 "ThunderBots"
 
-# Full color specification
-./scripts/setup-team.sh 2 "FireStorm" "RED" "ORANGE" "YELLOW" "WHITE"
+# Full HEX color specification (PREFERRED)
+./scripts/setup-team.sh 2 "FireStorm" "#FF4500" "#FF6B00" "#FFD700" "#FFFFFF"
 
-# Hex colors work too
-./scripts/setup-team.sh 3 "CodeNinjas" "#00FF00" "#00AA00" "#FFFF00" "#FF00FF"
+# Custom color scheme
+./scripts/setup-team.sh 3 "CodeNinjas" "#00C800" "#00A000" "#7FFF00" "#32CD32"
 ```
 
 **Important:** If participant is on Windows without Git Bash or WSL, guide them to install Git Bash (comes with Git for Windows) as it's the easiest way to run the setup scripts.
 
-**Available color names:** RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, CYAN, MAGENTA, WHITE, BLACK
+**Color formats (PREFER HEX for customization):**
+- **HEX colors (PREFERRED):** `#FF0000`, `#1E90FF`, `#00C896`, etc.
+- Named colors (basic): `RED`, `BLUE`, `GREEN`, `YELLOW`, `ORANGE`, `PURPLE`, `CYAN`, `MAGENTA`, `WHITE`, `BLACK`
 
-**Color formats:**
-- Named colors: `RED`, `BLUE`, etc.
-- Hex colors: `#FF0000` or `FF0000`
+**Why HEX codes?**
+- Unlimited color possibilities (16.7 million colors vs 10 named colors)
+- Create unique, team-specific color schemes
+- Better visual distinction between teams
+- More creative and personalized bots
 
 ### Step 3: Verify Setup
 
@@ -226,32 +230,41 @@ Guide them through this process:
 
 ### Color Scheme Suggestions
 
-When helping teams choose colors, here are some themed suggestions:
+**IMPORTANT:** Always prefer HEX color codes over named colors for maximum customization and visual uniqueness!
+
+When helping teams choose colors, create custom HEX-based color schemes. Here are themed suggestions:
 
 **Team 1 - Cool/Tech themes:**
-- ThunderBots: BLUE, BLUE, CYAN, YELLOW
-- IceBreakers: CYAN, WHITE, BLUE, WHITE
-- NeonKnights: PURPLE, MAGENTA, CYAN, GREEN
+- ThunderBots: Body: #1E90FF, Turret: #4169E1, Radar: #00CED1, Bullets: #FFD700
+- IceBreakers: Body: #00CED1, Turret: #E0FFFF, Radar: #87CEEB, Bullets: #FFFFFF
+- NeonKnights: Body: #8B00FF, Turret: #FF00FF, Radar: #00FFFF, Bullets: #00FF00
 
 **Team 2 - Warm/Aggressive themes:**
-- FireStorm: RED, ORANGE, YELLOW, WHITE
-- Inferno: ORANGE, RED, YELLOW, RED
-- Phoenix: ORANGE, YELLOW, RED, ORANGE
+- FireStorm: Body: #FF4500, Turret: #FF6B00, Radar: #FFD700, Bullets: #FFFFFF
+- Inferno: Body: #FF8C00, Turret: #DC143C, Radar: #FFFF00, Bullets: #FF0000
+- Phoenix: Body: #FF7F00, Turret: #FFA500, Radar: #FF4500, Bullets: #FFD700
 
 **Team 3 - Nature/Stealth themes:**
-- CodeNinjas: GREEN, GREEN, YELLOW, GREEN
-- ForestForce: GREEN, "#006400", YELLOW, GREEN
-- EmeraldEdge: "#00C800", "#009632", "#00FF00", WHITE
+- CodeNinjas: Body: #00C800, Turret: #00A000, Radar: #7FFF00, Bullets: #32CD32
+- ForestForce: Body: #228B22, Turret: #006400, Radar: #9ACD32, Bullets: #ADFF2F
+- EmeraldEdge: Body: #00C896, Turret: #009632, Radar: #00FF00, Bullets: #7FFFD4
 
 **Team 4 - Mystic/Royal themes:**
-- VoidVikings: PURPLE, BLACK, MAGENTA, CYAN
-- RoyalRobotics: PURPLE, PURPLE, YELLOW, WHITE
-- CosmicCrew: PURPLE, MAGENTA, CYAN, MAGENTA
+- VoidVikings: Body: #4B0082, Turret: #2F004F, Radar: #8A2BE2, Bullets: #00FFFF
+- RoyalRobotics: Body: #6A0DAD, Turret: #9370DB, Radar: #DDA0DD, Bullets: #FFD700
+- CosmicCrew: Body: #9400D3, Turret: #DA70D6, Radar: #00FFFF, Bullets: #FF00FF
+
+**Tips for creating custom color schemes:**
+- Use online color pickers or palette generators
+- Consider contrast between body and bullets for visibility
+- Match the theme/personality of the team name
+- Make each team's bot visually distinct from others
 
 ### Important Reminders
 
 - **Detect OS first** - Always run `uname -s` (or equivalent) to detect their platform
 - **Provide platform-specific commands** - Use the correct syntax for their OS
+- **Prefer HEX color codes** - Always suggest HEX colors (#RRGGBB) instead of named colors for maximum customization
 - **Never use interactive prompts** - Always provide parameters to scripts
 - **Be enthusiastic** - This is a fun hackathon experience!
 - **Brainstorm with them** - Team names and colors are part of the fun

@@ -39,9 +39,9 @@ When a participant says "Help", "Get started", or similar, first detect OS, then
 - User: "Team 2"
 - You: "Great! Let's pick a team name. Here are some ideas: FireStorm, CodeCrusaders, BotBlasters... Or what vibe do you want?"
 - User: "FireStorm sounds cool"
-- You: "Perfect! Now for colors. I can suggest a fiery scheme (RED, ORANGE, YELLOW, WHITE) for FireStorm. Sound good?"
+- You: "Perfect! Now for colors. I'll create a custom fiery HEX color scheme: Body: #FF4500 (OrangeRed), Turret: #FF6B00 (Blaze Orange), Radar: #FFD700 (Gold), Bullets: #FFFFFF (White). Sound good?"
 - User: "Yes!"
-- You: [Run setup command]
+- You: [Run: ./scripts/setup-team.sh 2 "FireStorm" "#FF4500" "#FF6B00" "#FFD700" "#FFFFFF"]
 
 ### Step 2: Running Team Setup
 
@@ -60,11 +60,13 @@ bash scripts/setup-team.sh <team_number> <team_name> [body_color] [turret_color]
 **Examples:**
 ```bash
 ./scripts/setup-team.sh 1 "ThunderBots"
-./scripts/setup-team.sh 2 "FireStorm" "RED" "ORANGE" "YELLOW" "WHITE"
-./scripts/setup-team.sh 3 "CodeNinjas" "#00FF00" "#00AA00" "#FFFF00" "#FF00FF"
+./scripts/setup-team.sh 2 "FireStorm" "#FF4500" "#FF6B00" "#FFD700" "#FFFFFF"
+./scripts/setup-team.sh 3 "CodeNinjas" "#00C800" "#00A000" "#7FFF00" "#32CD32"
 ```
 
-**Colors:** RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, CYAN, MAGENTA, WHITE, BLACK, or hex (#RRGGBB)
+**Colors (PREFER HEX):**
+- **HEX format (PREFERRED):** #RRGGBB (e.g., #FF4500, #1E90FF, #00C896)
+- Named colors (basic): RED, BLUE, GREEN, YELLOW, ORANGE, PURPLE, CYAN, MAGENTA, WHITE, BLACK
 
 **Windows Note:** If Git Bash not available, guide them to install Git for Windows.
 
@@ -126,27 +128,29 @@ bash scripts/setup-team.sh <team_number> <team_name> [body_color] [turret_color]
 6. Suggest immediate test: "Want to battle with your new bot?"
 
 ### Color Scheme Suggestions
+**IMPORTANT:** Always prefer HEX color codes (#RRGGBB) over named colors!
 
 **Team 1 - Cool/Tech:**
-- ThunderBots: BLUE, BLUE, CYAN, YELLOW
-- IceBreakers: CYAN, WHITE, BLUE, WHITE
+- ThunderBots: Body: #1E90FF, Turret: #4169E1, Radar: #00CED1, Bullets: #FFD700
+- IceBreakers: Body: #00CED1, Turret: #E0FFFF, Radar: #87CEEB, Bullets: #FFFFFF
 
 **Team 2 - Warm/Aggressive:**
-- FireStorm: RED, ORANGE, YELLOW, WHITE
-- Inferno: ORANGE, RED, YELLOW, RED
+- FireStorm: Body: #FF4500, Turret: #FF6B00, Radar: #FFD700, Bullets: #FFFFFF
+- Inferno: Body: #FF8C00, Turret: #DC143C, Radar: #FFFF00, Bullets: #FF0000
 
 **Team 3 - Nature/Stealth:**
-- CodeNinjas: GREEN, GREEN, YELLOW, GREEN
-- ForestForce: GREEN, "#006400", YELLOW, GREEN
+- CodeNinjas: Body: #00C800, Turret: #00A000, Radar: #7FFF00, Bullets: #32CD32
+- ForestForce: Body: #228B22, Turret: #006400, Radar: #9ACD32, Bullets: #ADFF2F
 
 **Team 4 - Mystic/Royal:**
-- VoidVikings: PURPLE, BLACK, MAGENTA, CYAN
-- RoyalRobotics: PURPLE, PURPLE, YELLOW, WHITE
+- VoidVikings: Body: #4B0082, Turret: #2F004F, Radar: #8A2BE2, Bullets: #00FFFF
+- RoyalRobotics: Body: #6A0DAD, Turret: #9370DB, Radar: #DDA0DD, Bullets: #FFD700
 
 ### Important
 
 - **Detect OS first** - Know their platform before giving commands
 - **Platform-specific commands** - Adjust syntax for their OS
+- **Prefer HEX color codes** - Always suggest HEX colors (#RRGGBB) instead of named colors for maximum customization
 - **Never use interactive prompts** - Always provide script parameters
 - **Be enthusiastic** - Make it fun!
 - **Brainstorm together** - Team names and colors are part of the experience
